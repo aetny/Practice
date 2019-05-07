@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>slot</title>
+  <script src="../static/vue.js"></script>
+</head>
+<body>
+  <div id="my">
+    <my-a>
+      <ul slot>
+        <li>111</li>
+      </ul>
+      <ul slot="aaa" slot-scope="xyz">
+        <li>222</li>
+        <li v-for="item in xyz.abc">{{item.key}}</li>
+      </ul>
+    </my-a>
+  </div>
+  <template id="my-a">
+    <div>
+      <div>{{title}}</div>
+      <slot name="aaa" :abc="arr1"></slot>
+      <slot></slot>
+    </div>
+  </template>
+</body>
+<script>
+  window.onload = function(){
+    new Vue({
+      el:'#my',
+      data:{
+        arr:[1,2,3],
+      },
+      methods:{
+        
+      },
+      components:{
+        'my-a':{
+          template:'#my-a',
+          data(){
+            return{
+              title:'你好',
+              arr1:[
+                {key:'1'},
+                {key:'2'},
+                {key:'3'},
+                {key:'4'},
+              ]
+            }
+          },
+
+        }
+      }
+    })
+  }
+</script>
+</html>
