@@ -18,6 +18,9 @@
         <li v-for="item in xyz.abc">{{item.key}}</li>
       </ul>
     </my-a>
+    <my-a>
+      <h1>aaa</h1>
+    </my-a>
   </div>
   <template id="my-a">
     <div>
@@ -32,7 +35,7 @@
     new Vue({
       el:'#my',
       data:{
-        arr:[1,2,3],
+        arr:[111,222],
       },
       methods:{
         
@@ -46,8 +49,6 @@
               arr1:[
                 {key:'1'},
                 {key:'2'},
-                {key:'3'},
-                {key:'4'},
               ]
             }
           },

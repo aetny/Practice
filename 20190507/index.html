@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../static/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="my">
+    <!-- <input type="text" v-model="age"> -->
+    <input type="text" v-model="obj.id">
+    {{age}}
+    {{num}}
+  </div>
+</body>
+<script>
+  window.onload = function(){
+    var vm = new Vue({
+      el:"#my",
+      data:{
+        name:'Achpae',
+        age:14,
+        obj:{
+          id:1
+        }
+      },
+      computed:{
+        num(){
+          console.log('哈哈哈');
+          return this.name+this.obj.id
+        }
+      },
+      watch:{
+        "obj":{
+          handler:function(newValue,oldValue){
+
+            console.log('age值改变了 ',newValue,oldValue);
+          },
+          deep:true
+        }
+      },
+      methods:{
+
+      },
+      components:{
+
+      }
+    })
+    // vm.$watch('obj',{
+    //   handler:function(newValue,oldValue){
+    //     console.log(newValue,oldValue);
+    //   },
+    //   deep:true
+    // })
+  }
+</script>
+</html>
