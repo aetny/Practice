@@ -13,6 +13,7 @@
     <input type="text" v-model="obj.id">
     {{age}}
     {{num}}
+    <a href="javascript:;" @click="getN">getN</a>
   </div>
 </body>
 <script>
@@ -35,14 +36,18 @@
       watch:{
         "obj":{
           handler:function(newValue,oldValue){
-
+            // vm.getN;
+            console.log(this)
+            this.getN()
             console.log('age值改变了 ',newValue,oldValue);
           },
           deep:true
         }
       },
       methods:{
-
+        getN(){
+          console.log(this.num)
+        }
       },
       components:{
 
