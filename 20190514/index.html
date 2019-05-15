@@ -59,11 +59,11 @@
         </thead>
         <tbody>
           <tr v-for="(list,index) in curData" :key="index">
-            <td>{{list.id+1}}</td>
+            <td>{{index+1}}</td>
             <td>{{list.name}}</td>
-            <td><input type="checkbox" v-model="list.purchased" @click="modify('http://localhost:3333/post',index)"></td>
+            <td><input type="checkbox" v-model="list.purchased" @click="modify(list.id)"></td>
             <td>{{list.purchased|capitalize}}</td>
-            <td><button @click="delete_one(index)" :disabled="list.purchased==false" :class="{'active':list.purchased==true}">删除</button></td>
+            <td><button @click="delete_one(list.id)" :disabled="list.purchased==false" :class="{'active':list.purchased==true}">删除</button></td>
           </tr>
         </tbody>
       </table>
@@ -108,10 +108,25 @@
       },
       methods:{
         add_key(){
-          this.lists.unshift({name:this.input_val,purchased:false})
-          this.input_val=''
+          axios.post('http://localhost:3333/add',{name:this.input_val}).then(response=>{
+            return axios.get('http://localhost:3333/get')
+          }).then(res=>{
+            this.lists = res.data.result
+          }).catch(error=>{
+            console.log(error)
+          })
+          // this.lists.unshift({name:this.input_val,purchased:false})
+          // this.input_val=''
         },
         delete_one(data){
+          console.log(data)
+          axios.delete(`http://localhost:3333/delete/?id=${data}`).then(response=>{
+            return axios.get('http://localhost:3333/get')
+          }).then(res=>{
+            this.lists = res.data.result
+          }).catch(error=>{
+            console.log(error)
+          })
           this.lists.splice(data,1)
         },
         pageReduce(){
@@ -125,9 +140,12 @@
         clickPage(data){
           this.curPage = data
         },
-        modify(url,data){
-          axios.post(url,{id:data}).then(response=>{
-            console.log(response);
+        modify(data){
+          console.log(data)
+          axios.post('http://localhost:3333/post',{id:data}).then(response=>{
+            return axios.get('http://localhost:3333/get')
+          }).then(res=>{
+            this.lists = res.data.result
           }).catch(error=>{
             console.log(error);
           });

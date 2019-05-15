@@ -8,23 +8,28 @@ Simple Server for web api test.
 
 var connect = require('connect');  //创建连接
 var bodyParser = require('body-parser');   //body解析
+
+// var http = require('http');
+var url = require("url");
+var querystring = require("querystring");
 var lists={
-                "code": "200",
-                "msg": "success",
-                "result": [
-				  { id: 0,  name: 'Zero' , purchased:true},
-				  { id: 1, name: 'Mr. Nice' , purchased:true},
-				  { id: 2, name: 'Narco' , purchased:true},
-				  { id: 3, name: 'Bombasto' , purchased:false},
-				  { id: 4, name: 'Celeritas' , purchased:false},
-				  { id: 5, name: 'Magneta' , purchased:false},
-				  { id: 6, name: 'RubberMan' , purchased:false},
-				  { id: 7, name: 'Dynama' , purchased:false},
-				  { id: 8, name: 'Dr IQ' , purchased:false},
-				  { id: 9, name: 'Magma' , purchased:true},
-				  { id: 10, name: 'Tornado' , purchased:false}
-				]
-            }
+			"code": "200",
+			"msg": "success",
+			"result": [
+				{ id: 0,  name: 'Zero' , purchased:true},
+				{ id: 1, name: 'Mr. Nice' , purchased:true},
+				{ id: 2, name: 'Narco' , purchased:true},
+				{ id: 3, name: 'Bombasto' , purchased:false},
+				{ id: 4, name: 'Celeritas' , purchased:false},
+				{ id: 5, name: 'Magneta' , purchased:false},
+				{ id: 6, name: 'RubberMan' , purchased:false},
+				{ id: 7, name: 'Dynama' , purchased:false},
+				{ id: 8, name: 'Dr IQ' , purchased:false},
+				{ id: 9, name: 'Magma' , purchased:true},
+				{ id: 10, name: 'Tornado' , purchased:false}
+			]
+		}
+var count = lists.result.length;
 var arr =[];
 
 var app = connect()
@@ -46,7 +51,6 @@ var app = connect()
 	.use('/get', function(req, res, next) {
 		//response 响应   request请求
 		// 中间件
-		console.log(req.body);
 		res.end(JSON.stringify(lists));
 		next();      //
 	})
@@ -57,35 +61,55 @@ var app = connect()
 		// lists[req.body.id].purchased = !lists[req.body.id].purchased
 		// res.end(JSON.stringify(lists));
 		if(req.method=='POST') {
-			console.log(req.body.name);
-			lists.result[req.body.id].purchased = !lists.result[req.body.id].purchased
+			lists.result.forEach((item)=>{
+				item.id==req.body.id?item.purchased=!item.purchased:false
+			})
 			console.log(lists.result);
 			var data = {"code":200,"msg":"success"};
-			res.end(JSON.stringify(lists));
+			res.end(JSON.stringify(data));
 		} else {
 			res.end(JSON.stringify({}));
 		}
 		next();      //
 	})
-	.use('/info2', function(req, res, next) {
-		console.log(req.body);
-		var data = [];
-		data.push(req.body);
-		console.log(data);
-		res.end(JSON.stringify(data));
-		next();
+	.use('/delete', function(req, res, next) {
+		var arg = url.parse(req.url).query;
+		var params = querystring.parse(arg);
+		if(req.method=='DELETE') {
+			// console.log(res)
+			// console.log(req.body)
+			// console.log(req.url)
+			// console.log(arg)
+			// console.log(params.id)
+			
+			var a = lists.result.filter(function(v){
+				return v.id!=params.id
+			})
+			lists.result = a;
+			var data = {"code":200,"msg":"success"};
+			res.end(JSON.stringify(data));
+		} else {
+			res.end(JSON.stringify({}));
+		}
+		next();  
 	})
-	.use('/info3', function(req, res, next) {
+	.use('/add', function(req, res, next) {
 		//response 响应   request请求
 		// 中间件
 		console.log(req.body);
-		//console.log(req.originalUrl, req.url);
-		var data={
+		if(req.method=='POST'){
+			lists.result.unshift({id:count,name:req.body.name,purchased:false})
+			var data={
                 "code": "200",
                 "msg": "success",
-                }
+				}
+				count++;
             res.end(JSON.stringify(data));
-			next();      //
+		}else{
+			res.end(JSON.stringify({}));
+		}
+		//console.log(req.originalUrl, req.url);
+		next();      //
 	})
 	.use('/info4', function(req, res, next) {
 		//response 响应   request请求
