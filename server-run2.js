@@ -54,11 +54,7 @@ var app = connect()
 		//response 响应   request请求
 		// 中间件
 		console.log(req.body.id);
-		if(!req.body.id){
-
-		}else{
-			lists[req.body.id].purchased = !lists[req.body.id].purchased
-		}
+		lists[req.body.id].purchased = !lists[req.body.id].purchased
 		res.end(JSON.stringify(lists));
 		next();      //
 	})
