@@ -54,8 +54,17 @@ var app = connect()
 		//response 响应   request请求
 		// 中间件
 		console.log(req.body.id);
-		lists[req.body.id].purchased = !lists[req.body.id].purchased
-		res.end(JSON.stringify(lists));
+		// lists[req.body.id].purchased = !lists[req.body.id].purchased
+		// res.end(JSON.stringify(lists));
+		if(req.method=='POST') {
+			console.log(req.body.name);
+			lists.result[req.body.id].purchased = !lists.result[req.body.id].purchased
+			console.log(lists.result);
+			var data = {"code":200,"msg":"success"};
+			res.end(JSON.stringify(lists));
+		} else {
+			res.end(JSON.stringify({}));
+		}
 		next();      //
 	})
 	.use('/info2', function(req, res, next) {
