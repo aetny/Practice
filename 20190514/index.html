@@ -36,9 +36,6 @@
       background-color: #466bb1;
       color:#fff;
     }
-    #my .list_nav_footer{
-      
-    }
   </style>
 </head>
 <body>
@@ -85,7 +82,6 @@
         </ul>
       </nav>
     </div>
-    {{curData}}
   </div>
 </body>
 <script>
@@ -119,7 +115,7 @@
           // this.input_val=''
         },
         delete_one(data){
-          console.log(data)
+          // console.log(data)
           axios.delete(`http://localhost:3333/delete/?id=${data}`).then(response=>{
             return axios.get('http://localhost:3333/get')
           }).then(res=>{
@@ -141,7 +137,7 @@
           this.curPage = data
         },
         modify(data){
-          console.log(data)
+          // console.log(data)
           axios.post('http://localhost:3333/post',{id:data}).then(response=>{
             return axios.get('http://localhost:3333/get')
           }).then(res=>{
