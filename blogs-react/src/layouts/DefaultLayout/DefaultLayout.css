@@ -1,0 +1,7 @@
+#DefaultLayout {
+  border: 1px solid #f40;
+  margin: 9px;
+}
+#DefaultLayout > p.test {
+  color: #b3b3b3;
+}

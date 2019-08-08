@@ -1,0 +1,25 @@
+#HeadNav{
+  height:50px;
+  background-color:lighten($color: #000, $amount: 70%);
+  color:#fff;
+  text-align: left;
+  .nav-wrap{
+    margin:0 auto;
+    height:50px;
+    box-sizing: border-box;
+    .nav-logo-wrap{
+      width:50%;
+      display:inline-block;
+      margin:4px 12px;
+      vertical-align: top;
+      font-size:26px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .nav-list-wrap{
+      display: inline-block;
+      height:50px;
+      text-align: right;
+    }
+  }
+}

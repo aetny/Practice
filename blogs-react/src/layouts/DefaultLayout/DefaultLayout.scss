@@ -1,0 +1,13 @@
+// 运算符，添加变量
+$redColor:#f40;
+$width:100px;
+$span:test;
+$lightColor:#fff;
+$darkColor:#000;
+#DefaultLayout{
+  border: 1px solid $redColor;
+  margin: 4px+10px/2;
+  &>p.#{$span} {
+    color:lighten($color: $darkColor, $amount: 70%);
+  }
+}
