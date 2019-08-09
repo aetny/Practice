@@ -1,25 +1,47 @@
 #HeadNav{
   height:50px;
-  background-color:lighten($color: #000, $amount: 70%);
-  color:#fff;
+  background-color:lighten($color: #fff, $amount: 100%);
+  color:lighten($color: #000000, $amount: 80%);
   text-align: left;
   .nav-wrap{
     margin:0 auto;
     height:50px;
     box-sizing: border-box;
+    border-bottom: 1px solid #e8e8e8;
     .nav-logo-wrap{
-      width:50%;
+      width:20%;
       display:inline-block;
-      margin:4px 12px;
+      height:50px;
       vertical-align: top;
-      font-size:26px;
-      box-sizing: border-box;
-      text-align: center;
+      text-align:center;
+      .nav-logo{
+        height: 50px;
+        width: 26px;
+        font-size: 26px;
+        display: inline-block;
+        line-height: 50px;
+        margin-right: 0;
+        color:lighten($color: #000000, $amount: 60%)
+      }
     }
     .nav-list-wrap{
       display: inline-block;
       height:50px;
+      float:right;
       text-align: right;
+      width:50%;
+      .nav-list-menu{
+        margin:0;
+        height:50px;
+        list-style: none;
+        float: right;
+        padding-right:20px;
+        &>li{
+          height:50px;
+          float:left;
+          line-height:50px;
+        }
+      }
     }
   }
 }
