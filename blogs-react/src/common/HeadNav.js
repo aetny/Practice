@@ -14,7 +14,6 @@ export class HeadNav extends Component{
     current:'home',
   }
   handClick=(e)=>{
-    console.log(e);
     this.setState({
       current:e.key
     })

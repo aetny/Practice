@@ -1,0 +1,111 @@
+#Home{
+  .section{
+    padding:90px 0;
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    z-index:2;
+  }
+  .section::after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .section-header{
+    .poster{
+      background-image:url('../../assets/img/poster.jpg');
+      background-repeat: no-repeat;
+      background-position:center;
+      background-size:cover;
+      z-index:-1;
+    }
+    .section-bg{
+      content:'';
+      display:block;
+      position: absolute;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:-1;
+    }
+    .section-bg::after{
+      content:'';
+      display:block;
+      position: absolute;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      background: rgba(1,32,81,.1);
+    }
+    .section-title{
+      font-size:6em;
+      color:#fff;
+    }
+  }
+  
+  .section-content{
+    width:100%;
+    background-color:lighten($color: #fff, $amount: 0);
+    margin-top:0;
+    padding-top:0;
+    ._content{
+      max-width:1200px;
+      margin:0 auto;
+      text-align: left;
+      .content{
+        margin-top:60px;
+        .inner{
+          .post{
+            margin-top:60px;
+            margin-bottom: 20px;
+            padding-top:60px;
+            padding-left:160px;
+            clear:both;
+            .date{
+              float:left;
+              margin-left:-160px;
+              width:100px;
+              padding:20px 0;
+              text-align:center;
+              background:#ff8c00;
+              font-size:2em;
+              color:#000;
+              .small{
+                font-size:.5em;
+                border-top:1px solid #000;
+                width:40px;
+                display: block;
+                margin:auto;
+              }
+            }
+            .time{
+              span{
+                margin:0 5px;
+              }
+              a{
+                color:lighten($color: #000000, $amount: 60%);
+              }
+            }
+            .title{
+              a{
+                color:lighten($color: #000000, $amount: 10%);
+                font-size:2em;
+              }
+            }
+            .cont{
+              font-size:1.2em;
+
+            }
+          }
+        }
+        .pagenavi{
+          text-align:center;
+          margin-top:90px;
+          margin-bottom:40px;
+        }
+      }
+    }
+  }
+}

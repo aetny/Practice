@@ -11,9 +11,6 @@ export class DefaultLayout extends Component{
     return (
       <div id="DefaultLayout">
         <HeadNav />
-        Hello World
-        <p className="test">1</p>
-        <p>2</p>
         <div className="content-wrap">
           <Route path={this.props.match.url + '/'} component={Home} exact></Route>
           <Route path={this.props.match.url + '/Resource'} component={Resource}></Route>

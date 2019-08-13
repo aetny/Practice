@@ -1,8 +1,11 @@
 #HeadNav{
   height:50px;
-  background-color:lighten($color: #fff, $amount: 100%);
-  color:lighten($color: #000000, $amount: 80%);
+  width:100%;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0,0,0,.1)), to(transparent));
+  color:lighten($color: #fff, $amount: 0);
   text-align: left;
+  position: fixed;
+  z-index:10;
   .nav-wrap{
     margin:0 auto;
     height:50px;
@@ -21,7 +24,7 @@
         display: inline-block;
         line-height: 50px;
         margin-right: 0;
-        color:lighten($color: #000000, $amount: 60%)
+        color:lighten($color: #fff, $amount: 0);
       }
     }
     .nav-list-wrap{
@@ -35,10 +38,29 @@
         list-style: none;
         float: right;
         padding-right:20px;
+        color:lighten($color: #fff, $amount: 0);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0,0,0,.1)), to(transparent));
         &>li{
           height:50px;
           float:left;
+          color:lighten($color: #fff, $amount: 0);
           line-height:50px;
+          a{
+            color:lighten($color: #fff, $amount: 0);
+          }
+          a:hover{
+            color:lighten($color: #1890ff, $amount: 0);
+          }
+        }
+        &>li.ant-menu-item-selected{
+          a{
+            color:lighten($color: #1890ff, $amount: 0);
+          }
+        }
+        li.ant-menu-submenu-selected{
+          div{
+            color:lighten($color: #1890ff, $amount: 0);
+          }
         }
       }
     }
