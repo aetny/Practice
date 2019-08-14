@@ -19,8 +19,6 @@ let _click = (data)=>{
 export class Recursion extends Component{
   render(){
     let list = this.props.data;
-    console.log(this.props)
-    console.log(_click(list))
     return(
       <div>
         <ul>

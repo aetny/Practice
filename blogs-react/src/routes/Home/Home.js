@@ -1,7 +1,9 @@
 import React , {Component} from 'react';
-import {Recursion} from '../../assets/component/recursion'
-import {Section} from './section'
-import './Home.scss'
+import {Pagination} from 'antd';
+import {SectionHeader} from './Header.js';
+import {Section} from './section';
+import './Home.scss';
+import '../../assets/css/global.scss'
 
 let data = [
   {
@@ -48,19 +50,15 @@ data2 = [
       name: 'DDD',
       child: [{ name: 'd1' }]
   }
-];;
+];
 
 export class Home extends Component{
+  
   render(){
     return (
-      <div id="Home">
+      <div id="Home" className="wrapper">
         {/* section-header */}
-        <div className="section section-header">
-          <div className="section-bg poster"></div>
-          <div className="section-title">
-            <div>Welcome Home</div>
-          </div>
-        </div>
+        <SectionHeader />
         {/* section-content */}
         <div className="section section-content">
           <div className="_content">
@@ -75,7 +73,12 @@ export class Home extends Component{
               </div>
             </div>
           </div>
+          <div className="home-minipage">
+            <Pagination size="small" total={100} showSizeChanger showQuickJumper/>
+          </div>
         </div>
+        {/* section-footer */}
+        
       </div>
     )
   }

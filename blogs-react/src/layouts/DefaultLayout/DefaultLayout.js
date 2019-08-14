@@ -7,6 +7,17 @@ import {Article} from '../../routes/ArticleShare/ArticleShare'
 import {Resource} from '../../routes/ResourceShare/ResourceShare'
 import './DefaultLayout.scss'
 export class DefaultLayout extends Component{
+  handleScroll(){
+    if(window.scrollY>500){
+      
+    }
+  }
+  componentDidMount(){
+    document.addEventListener('scroll',this.handleScroll);
+  }
+  componentWillUnmount(){
+    document.removeEventListener('scroll',this.aaa);
+  }
   render(){
     return (
       <div id="DefaultLayout">

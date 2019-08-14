@@ -31,3 +31,29 @@
     transform: rotate(360deg);
   }
 }
+/* html {
+  padding-left: calc(100vw - 100%);
+}
+@media screen and (min-width: 1150px) {
+  .wrap-outer {
+      margin-left: calc(100vw - 100%);
+  }
+} */
+
+
+/* html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+} */

@@ -1,13 +1,23 @@
 import React , {Component} from 'react';
 import {Recursion} from '../../assets/component/recursion'
-import './Home.scss'
 
 export  class Section extends Component{
-  
+  handleScroll(e) {
+    // 点击a之后， 先让浏览器滚动好，然后再作这个偏移，所以需要setTimeout
+    let _top = e.target.offsetTop;
+    let _height = document.querySelector('.poster').offsetHeight;
+    setTimeout(function() {
+      
+      window.scrollTo({ 
+        top: (_top + _height), 
+        behavior: "smooth" 
+      });
+    }, 100);
+  }
   render(){
     let data = this.props.abc;
     return (
-      <div className="post">
+      <div className="post" onClick={this.handleScroll.bind(this)}>
         <div className="date">
           13 <div className="small">2019.8</div>
         </div>

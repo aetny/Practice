@@ -1,0 +1,40 @@
+#ArticleShare{
+  .Article-list{
+    max-width: 1200px;
+    margin:0 auto;
+    #my-mask{
+      float:left;
+      position: relative;
+      overflow: hidden;
+      height:200px;
+      width:33.3%;
+      background-color:red;
+      .mask-bg{
+        display: block;
+        line-height: 200px;
+      }
+      .mask-inner{
+        position: absolute;
+        left: 0;
+        bottom:-50%;
+        width:100%;
+        -moz-transition: bottom .5s;
+        -o-transition: bottom .5s;
+        -webkit-transition: bottom .5s;
+        transition: bottom .5s;
+        background: rgba(233, 162, 162, 0.8);
+        .mask-down{
+          height:40px;
+          display: block;
+          line-height:40px;
+          color:#fff;
+        }
+      }
+    }
+    #my-mask:hover{
+      .mask-inner{
+        bottom: 0;
+      }
+    }
+  }
+}
