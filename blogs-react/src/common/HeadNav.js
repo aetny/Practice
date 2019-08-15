@@ -7,9 +7,6 @@ import './HeadNav.scss'
 const {SubMenu} = Menu;
 
 export class HeadNav extends Component{
-  // constructor(){
-  //   this.
-  // };
   state = {
     current:'home',
   }
@@ -25,7 +22,7 @@ export class HeadNav extends Component{
   }
   render(){
     return (
-      <div id="HeadNav">
+      <div id="HeadNav" style={this.props.bbb}>
         <div className="nav-wrap">
           <div className="nav-logo-wrap"
             onClick={()=>this.handClickGlobal()}>

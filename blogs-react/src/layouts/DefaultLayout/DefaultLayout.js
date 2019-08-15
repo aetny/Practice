@@ -7,23 +7,32 @@ import {Article} from '../../routes/ArticleShare/ArticleShare'
 import {Resource} from '../../routes/ResourceShare/ResourceShare'
 import './DefaultLayout.scss'
 export class DefaultLayout extends Component{
-  handleScroll(){
-    if(window.scrollY>500){
-      
-    }
+  state = {
+    name : {},
+    style1 : {
+      height:"40px",
+      color:"#fff",
+      backgroundColor:"#000"
+    },
+    style2 : {
+      height:"50px",
+      color:"#000",
+      backgroundColor:"transfrom"
+    },
   }
-  componentDidMount(){
-    document.addEventListener('scroll',this.handleScroll);
-  }
-  componentWillUnmount(){
-    document.removeEventListener('scroll',this.aaa);
+  handleChange(){
+    console.log('111')
+    // this.setState({
+    //   name:(window.scrollY>100)?this.state.style1:this.state.style2
+    // })
   }
   render(){
+    console.log(this.state.name)
     return (
       <div id="DefaultLayout">
-        <HeadNav />
+        <HeadNav bbb={this.state.name}/>
         <div className="content-wrap">
-          <Route path={this.props.match.url + '/'} component={Home} exact></Route>
+          <Route path={this.props.match.url + '/'} abc={this.handleChange.bind(this)} component={Home} exact></Route>
           <Route path={this.props.match.url + '/Resource'} component={Resource}></Route>
           <Route path={this.props.match.url + '/Article'} component={Article}></Route>
           <Route path={this.props.match.url + '/About'} component={About}></Route>

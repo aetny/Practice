@@ -4,15 +4,23 @@ import {Recursion} from '../../assets/component/recursion'
 export  class Section extends Component{
   handleScroll(e) {
     // 点击a之后， 先让浏览器滚动好，然后再作这个偏移，所以需要setTimeout
-    let _top = e.target.offsetTop;
-    let _height = document.querySelector('.poster').offsetHeight;
+    let _top = this.getTop(e.target);
+    // let _height = document.querySelector('.poster').offsetHeight;
+    console.log(_top);
     setTimeout(function() {
-      
       window.scrollTo({ 
-        top: (_top + _height), 
+        top: _top, 
         behavior: "smooth" 
       });
     }, 100);
+  }
+  getTop(obj){
+    var _top = obj.offsetTop;
+    // 返回的对象为空是body
+    if(obj.offsetParent!=null){
+      _top += this.getTop(obj.offsetParent)||0;
+    }
+    return _top;
   }
   render(){
     let data = this.props.abc;
