@@ -22,7 +22,7 @@ export class HeadNav extends Component{
   }
   render(){
     return (
-      <div id="HeadNav" style={this.props.bbb}>
+      <div id="HeadNav" style={this.props.bgChange}>
         <div className="nav-wrap">
           <div className="nav-logo-wrap"
             onClick={()=>this.handClickGlobal()}>

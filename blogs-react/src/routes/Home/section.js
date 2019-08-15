@@ -9,7 +9,7 @@ export  class Section extends Component{
     console.log(_top);
     setTimeout(function() {
       window.scrollTo({ 
-        top: _top, 
+        top: _top-50, 
         behavior: "smooth" 
       });
     }, 100);
@@ -25,8 +25,8 @@ export  class Section extends Component{
   render(){
     let data = this.props.abc;
     return (
-      <div className="post" onClick={this.handleScroll.bind(this)}>
-        <div className="date">
+      <div className="post">
+        <div className="date" onClick={this.handleScroll.bind(this)}>{/*之前绑定错误*/}
           13 <div className="small">2019.8</div>
         </div>
         <div className="time">

@@ -10,29 +10,31 @@ export class DefaultLayout extends Component{
   state = {
     name : {},
     style1 : {
-      height:"40px",
-      color:"#fff",
       backgroundColor:"#000"
     },
     style2 : {
-      height:"50px",
-      color:"#000",
-      backgroundColor:"transfrom"
+      backgroundColor:"transparent"
     },
   }
-  handleChange(){
-    console.log('111')
-    // this.setState({
-    //   name:(window.scrollY>100)?this.state.style1:this.state.style2
-    // })
+  handleChange=()=>{
+    let {style1,style2} = this.state;
+    this.setState({
+      name:(window.scrollY>100)?style1:style2
+    })
+  }
+  
+  componentDidMount(){
+    document.addEventListener('scroll',this.handleChange);
+  }
+  componentWillUnmount(){
+    document.removeEventListener('scroll',this.handleChange);
   }
   render(){
-    console.log(this.state.name)
     return (
       <div id="DefaultLayout">
-        <HeadNav bbb={this.state.name}/>
+        <HeadNav bgChange={this.state.name}/>
         <div className="content-wrap">
-          <Route path={this.props.match.url + '/'} abc={this.handleChange.bind(this)} component={Home} exact></Route>
+          <Route path={this.props.match.url + '/'} component={Home} exact></Route>
           <Route path={this.props.match.url + '/Resource'} component={Resource}></Route>
           <Route path={this.props.match.url + '/Article'} component={Article}></Route>
           <Route path={this.props.match.url + '/About'} component={About}></Route>

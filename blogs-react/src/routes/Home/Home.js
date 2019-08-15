@@ -53,19 +53,6 @@ data2 = [
 ];
 
 export class Home extends Component{
-  constructor(){
-    super();
-    this.state = {}
-  }
-  aaa(){
-    console.log(this.props);
-  }
-  componentDidMount(){
-    document.addEventListener('scroll',this.aaa);
-  }
-  componentWillUnmount(){
-    // document.removeEventListener('scroll',this.aaa);
-  }
   render(){
     return (
       <div id="Home" className="wrapper">
