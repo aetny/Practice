@@ -9,7 +9,7 @@ export  class Section extends Component{
     console.log(_top);
     setTimeout(function() {
       window.scrollTo({ 
-        top: _top-50, 
+        top: _top - 50, 
         behavior: "smooth" 
       });
     }, 100);
