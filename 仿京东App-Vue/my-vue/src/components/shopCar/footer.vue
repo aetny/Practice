@@ -4,8 +4,8 @@
         <input type="checkbox" @click="changeAll($event)" :checked="checkAllState">全选
       </div>
       <div class="s_total">
-        <div class="s_total_count">合计：￥</div>
-        <div class="s_rental">总额：￥ 立减：￥</div>
+        <div class="s_total_count">合计：{{totalCount}}￥</div>
+        <div class="s_rental">总额：￥{{totalCount}} 立减：￥</div>
       </div>
       <div class="s_account">
         <router-link :to="''">去结算</router-link>
@@ -21,7 +21,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['checkAllState']),
+        ...mapGetters(['checkAllState','totalCount']),
     },
     methods: {
         changeAll(event){
