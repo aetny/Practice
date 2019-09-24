@@ -4,7 +4,7 @@ const common = require('../libs/common');
 const db = mysql.createPool({
     host: 'localhost', // db host
     user: 'root',     // db user
-    password: 'root',  //db pwd
+    password: '1111',  //db pwd
     database: 'jd'   // db name
 });
 module.exports = () => {

@@ -1,21 +1,21 @@
 <template>
   <div class="detail">
-    <header/>
-    <content/>
-    <footer/>
+    <Header/>
+    <Content/>
+    <Footer/>
   </div>
 </template>
 <script>
-import header from './header'
-import content from './content'
-import footer from './footer'
+import Header from './header'
+import Content from './content'
+import Footer from './footer'
 
 export default{
   
   components:{
-    header,
-    content,
-    footer
+    Header,
+    Content,
+    Footer
   }
 }
 </script>
