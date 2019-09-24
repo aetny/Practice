@@ -1,90 +1,21 @@
 <template>
   <div class="detail">
-    <div class="detail_header">
-      <a class="icon_back" href="#" @click="$router.go(-1)"></a>
-      <h3 class="detail_header_title">购物车</h3>
-      <a class="icon_menu" href="#" @click="$router.push({path:'/home'})"></a>
-    </div>
-    <div class="s_list">
-      <div class="item_box" v-for="(item,index) in shopData" :key="index">
-        <div class="s_logo">
-          <input type="checkbox" class="cart_shop" :value="item" v-model="checkArr">
-          <img style="width:16px;height:13px;" src="../../assets/images/buy-logo.png" alt="" class="s_icon">
-          <div class="s_more">
-            优惠券>
-          </div>
-        </div>
-        <div class="s_item_content">
-          <div style="padding-left:10px;float:left;">
-            <a href="" style="display:block;padding:10px;width:100px;height:100px;box-sizing: border-box;border: 1px solid #eee;border-radius: 4px;background-color: #fff;">
-              <img style="width:100%;height:100%;" :src="item.product_img_url" alt="">
-            </a>
-          </div>
-          <div class="s_item_detail">
-            <div class="s_item_ti"><a href="#">{{item.product_name}}</a></div>
-            <div class="s_item_weight">重量:0.45kg 颜色:AT800/16</div>
-            <div style="color:#f40;">￥<span style="font-weight:700;font-size:16px">{{item.product_uprice}}</span>.00</div>
-          </div>
-          <div class="s_item_count">
-            <div class="s_item_input">
-              <span style="border-right:none;cursor: pointer;border-top-left-radius: 4px;border-bottom-left-radius: 4px;">+</span><input type="text" :value="item.shop_id"/><span style="border-left:none;cursor: pointer;border-top-right-radius: 4px;border-bottom-right-radius: 4px;" >-</span>
-            </div>
-            <div class="s_item_del" @click="name">
-              <div class="del_top"></div>
-              <div class="del_bot"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="s_footer">
-      <div class="s_checkAll" @click="changeAll($event)" >
-        <input type="checkbox" :value="checkValue" :checked="checkArr.length==shopData.length?true:false">全选
-      </div>
-      <div class="s_total">
-        <div class="s_total_count">合计：￥</div>
-        <div class="s_rental">总额：￥ 立减：￥</div>
-      </div>
-      <div class="s_account">
-        <router-link :to="''">去结算</router-link>
-      </div>
-    </div>
+    <header/>
+    <content/>
+    <footer/>
   </div>
 </template>
 <script>
-import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
+import header from './header'
+import content from './content'
+import footer from './footer'
+
 export default{
-  data(){
-    return {
-      checkArr:[],
-      checkValue:false,
-    }
-  },
-  computed:{
-    ...mapState(['shopData']),
-  },
-  mounted(){
-    this.$store.dispatch('hideNav');
-  },
-  beforeDestroy(){
-    this.$store.dispatch('showNav');
-  },
-  methods:{
-    ...mapActions(['']),
-    name(){
-      alert('1')
-    },
-    changeAll(event){
-      this.checkValue = !this.checkValue;
-      if(this.checkValue == false){
-        this.checkArr = [];
-      }else{
-        this.checkArr = this.shopData
-        // JSON.parse(JSON.stringify(this.shopData)).forEach(element => {
-        //   this.checkArr.push(element);
-        // });
-      }
-    }
+  
+  components:{
+    header,
+    content,
+    footer
   }
 }
 </script>

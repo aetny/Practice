@@ -74,19 +74,18 @@ export default {
         this.list = res.data[0];
         this.curDa = res.data[1][0];
         this.flag = true;
-        console.log(this.curDa)
       }).catch(error=>{
         console.log(error);
       })
     },
-    name(){
-      alert('1');
-    },
     addCarList(){
-      console.log(this.curDa);
-      // this.$store.dispatch("addProduct",this.curDa);
+      let data = JSON.parse(JSON.stringify(this.curDa));
+      data.goods_num = 1;
+      data.check = false;
+      this.$store.dispatch("addProduct",data);
       // this.addProduct(this.curDa);
-      this.ADD(this.curDa);
+      this.$router.push('/cart');
+      
     }
   },
   components:{
