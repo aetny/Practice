@@ -84,7 +84,7 @@ export default {
       data.check = false;
       this.$store.dispatch("addProduct",data);
       // this.addProduct(this.curDa);
-      this.$router.push('/cart');
+      this.$router.push('/shopCar');
       
     }
   },

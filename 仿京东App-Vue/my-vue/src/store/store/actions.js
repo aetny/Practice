@@ -12,10 +12,10 @@ const actions = {
         commit('DELPRODUCT');
     },
     gIncrement({ commit }, data) {
-        commit('GINCREMENT');
+        commit('GINCREMENT',data);
     },
     gDecrement({ commit }, data) {
-        commit('GDECREMENT');
+        commit('GDECREMENT',data);
     },
     delCartData({ commit }, data) {
         commit('DELCARTDATA');

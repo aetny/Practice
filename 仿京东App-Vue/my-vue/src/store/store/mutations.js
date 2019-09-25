@@ -11,10 +11,13 @@ const mutations = {
             state.shopData.push(data);
         } else {
             let map = state.shopData.map((item) => item.product_id);
-            if (map.findIndex(data.product_id) >= 0) {
-                let filter_item = state.shopData.filter((index, item) => {
+            console.log(map);
+            if (map.findIndex((element)=>{return element==data.product_id}) >= 0) {
+                let filter_item = state.shopData.filter(item=> {
                     return item.product_id == data.product_id
+
                 })
+                // console.log(filter_item);
                 filter_item[0].goods_num++;
             } else {
                 state.shopData.push(data);
@@ -24,13 +27,13 @@ const mutations = {
     },
     GINCREMENT(state, data) {
         let filterItem = state.shopData.filter((item) => {
-            return item.product_id == data.product_id
+            return item.product_id == data
         })
         filterItem[0].goods_num++;
     },
     GDECREMENT(state, data) {
         let filterItem = state.shopData.filter((item) => {
-            return item.product_id == data.product_id
+            return item.product_id == data
         })
         filterItem[0].goods_num <= 1 ?
             filterItem[0].goods_num = 1 :

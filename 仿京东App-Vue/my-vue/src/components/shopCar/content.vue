@@ -63,8 +63,16 @@ export default {
     this.$store.dispatch('showNav');
   },
   methods:{
-    ...mapActions(['gIncrement','gDecrement']),
+    // ...mapActions(['gIncrement','gDecrement']),
+    gIncrement(id){
+      console.log(id)
+      this.$store.dispatch('gIncrement',id)
+    },
+    gDecrement(id){
+      this.$store.dispatch('gDecrement',id)
+    },
     showPop(id){
+        console.log(id)
         this.curId = id;
         this.popStatus = true;
     },
@@ -76,12 +84,12 @@ export default {
         this.$store.dispatch('delCartData',this.curId);
     },
     checkChange(){
-        this.$router.dispatch("checkChange");
+        this.$store.dispatch("checkChange");
     }
   },
 }
 </script>
-<style lang="">
+<style>
 .main{
     position:relative;
 }
@@ -101,5 +109,90 @@ export default {
     border:1px solid #000;
     border-radius: 10px;
 
+}
+.detail{
+  margin:0;
+  padding:0;
+}
+
+
+.detail .s_list{
+  width:100%;
+  padding:45px 10px 0 10px;
+  box-sizing: border-box;
+}
+.detail .s_list .item_box{
+  width:100%;
+  background-color: #eee;
+  margin-bottom: 10px;
+}
+.detail .s_list .item_box .s_logo{
+  padding:10px;
+  position:relative;
+}
+.detail .s_list .item_box .s_logo .s_more{
+  position:absolute;
+  right:0;
+  top:0;
+  line-height:40px;
+  color:#f40;
+}
+.detail .s_list .item_box .s_item_content{
+  width:100%;
+  height:100px;
+  position: relative;
+}
+.detail .s_list .item_box .s_item_content .s_item_detail{
+  float:left;
+  font-size:13px;
+}
+.detail .s_list .item_box .s_item_content .s_item_count{
+  position:absolute;
+  bottom:5px;
+  right:5px;
+  float:right;
+}
+.detail .s_list .item_box .s_item_content .s_item_count .s_item_input{
+  width:100%;
+}
+.detail .s_list .item_box .s_item_content .s_item_count .s_item_input span,
+.detail .s_list .item_box .s_item_content .s_item_count .s_item_input input{
+  border:1px solid #CBCBCB;
+  height:24px;
+  width:25px;
+  display:inline-block;
+  text-align: center;
+}
+.detail .s_list .item_box .s_item_content .s_item_count .s_item_input input{
+  padding:0;
+}
+.detail .s_list .item_box .s_item_content .s_item_count .s_item_del{
+  float:right;
+  margin-top: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.detail .s_list .item_box .s_item_content .s_item_count .del_top{
+  height:5px;
+  width:20px;
+  background:url('../../assets/images/delete_up.png');
+  background-size:20px 5px;
+  margin-left: -1px;
+}
+.detail .s_list .item_box .s_item_content .s_item_count .del_bot{
+  height:18px;
+  width:18px;
+  background:url('../../assets/images/delete_down.png');
+  background-size:18px 18px;
+}
+.detail .s_list .item_box .s_item_content .s_item_detail>div{
+  margin-bottom:5px;
+}
+.detail .s_list .item_box .s_item_content  .s_item_ti a{
+  text-decoration: none;
+  color:#000;
+}
+.detail .s_list .item_box .s_item_content .s_item_weight{
+  color:#BCCCCA;
 }
 </style>

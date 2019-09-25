@@ -44,7 +44,8 @@ export default {
   }
 }
 </script>
-<style>
+<style >
+  
   .nav_wrapper{
     position: fixed;
     bottom:0;
