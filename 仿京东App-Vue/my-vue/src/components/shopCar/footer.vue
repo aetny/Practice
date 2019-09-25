@@ -4,8 +4,8 @@
         <input type="checkbox" @click="changeAll($event)" :checked="checkAllState">全选
       </div>
       <div class="s_total">
-        <div class="s_total_count">合计：￥{{totalCount||0}}</div>
-        <div class="s_rental">总额：￥{{totalCount||0}} 立减：￥0</div>
+        <div class="s_total_count">合计：￥{{totalCount||0}}元</div>
+        <div class="s_rental">总额：￥{{totalCount||0}}元 立减：￥0元</div>
       </div>
       <div class="s_account">
         <router-link :to="''">去结算</router-link>
