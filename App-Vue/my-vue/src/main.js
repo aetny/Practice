@@ -16,7 +16,7 @@ import './assets/font/iconfont.css'
 
 Vue.config.productionTip = false//生产环境的提示是否需要
 Vue.use(ElementUI,{size:'small',zIndex:3000});
-axios.defaults.baseURL = 'http://193.112.234.146:3306/'
+axios.defaults.baseURL = 'http://127.0.0.1:3000'
 // axios.defaults.headers.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 Vue.prototype.$http = axios;
 

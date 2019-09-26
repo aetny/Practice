@@ -6,9 +6,9 @@ const db = mysql.createPool({
     connectTimeout  : 60 * 60 * 1000,
     acquireTimeout  : 60 * 60 * 1000,
     timeout         : 60 * 60 * 1000,
-    host: 'cdb-fekld8un.gz.tencentcdb.com', // db host
-    user: 'lxh',     // db user
-    password: 'Ssjiajs29u!#sjo102l33ewwqwq',  //db pwd
+    host: 'localhost', // db host
+    user: 'root',     // db user
+    password: '1111',  //db pwd
     database: 'jd'   // db name
 });
 module.exports = () => {
