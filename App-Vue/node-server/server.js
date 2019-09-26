@@ -18,8 +18,8 @@ server.all('*', function(req, res, next) {
         next();
     }
 });
-server.listen(3333, () => {
-    console.log("正在监听3333端口");
+server.listen(3306, () => {
+    console.log("正在监听3306端口");
 
 });
 
