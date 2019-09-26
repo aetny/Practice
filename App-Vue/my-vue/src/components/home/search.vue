@@ -4,7 +4,7 @@
       <a href="javascript:;" class="icon_logo"></a>
       <form action="" class="search_form">
         <span></span>
-        <input type="search" placeholder="点击搜索" v-model="input_data" class="search" @click="$router.push('classify')">
+        <input type="search" placeholder="点击搜索" v-model="input_data" class="search" @click="$router.push('find')">
       </form>
       <a href="javascript:;" class="search_button" @click="_submit">搜索</a>
     </div>

@@ -6,6 +6,7 @@ import discover from '@/components/discover/discover'
 import mine from '@/components/mine/mine'
 import shopCar from '@/components/shopCar/shopCar'
 import detail from '@/components/detail/detail'
+import find from '@/components/find/search'
 Vue.use(Router)
 
 export default new Router({
@@ -45,6 +46,11 @@ export default new Router({
       path: '/detail/:id',
       name: 'detail',
       component: detail
+    },
+    {
+      path: '/find',
+      name: 'find',
+      component: find
     },
     {
       path: '/*',
