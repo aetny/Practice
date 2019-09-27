@@ -6,7 +6,7 @@ import discover from '@/components/discover/discover'
 import mine from '@/components/mine/mine'
 import shopCar from '@/components/shopCar/shopCar'
 import detail from '@/components/detail/detail'
-import find from '@/components/find/search'
+import find from '@/components/find/find'
 Vue.use(Router)
 
 export default new Router({

@@ -22,9 +22,9 @@
           </div>
           <div class="s_item_count">
             <div class="s_item_input">
-              <span @click="gIncrement(item.product_id)" style="border-right:none;cursor: pointer;border-top-left-radius: 4px;border-bottom-left-radius: 4px;">+</span>
-              <input type="text" :value="item.goods_num"/>
-              <span @click="gDecrement(item.product_id)" style="border-left:none;cursor: pointer;border-top-right-radius: 4px;border-bottom-right-radius: 4px;">-</span>
+              <span @click="gIncrement(item.product_id)" style="border-right:none;cursor: pointer;border-top-left-radius: 4px;border-bottom-left-radius: 4px;"
+              >+</span><input type="text" :value="item.goods_num"
+              /><span @click="gDecrement(item.product_id)" style="border-left:none;cursor: pointer;border-top-right-radius: 4px;border-bottom-right-radius: 4px;">-</span>
             </div>
             <div class="s_item_del" @click="showPop(item.product_id)">
               <div class="del_top"></div>
@@ -35,11 +35,13 @@
         
       </div>
     </div>
+    <div class="pop_bg" v-show="popStatus"></div>
     <div class="pop_box" v-show="popStatus">
         <div class="del_info">确认删除该商品吗？</div>
         <div class="del_cancel" @click="delCancel">取消</div>
         <div class="del_ok" @click="delOk">确认</div>
     </div>
+    
 </div>
     
 </template>
@@ -90,8 +92,15 @@ export default {
 }
 </script>
 <style>
-.main{
-    position:relative;
+.pop_bg{
+  position: fixed;
+  top:0;
+  background-color:#000;
+  opacity: 0.5;
+  z-index:99;
+  background-origin: border-box;
+  height:100%;
+  width:100%;
 }
 .pop_box{
     position: absolute;
@@ -102,13 +111,26 @@ export default {
     margin-left:-100px;
     margin-top:-50px;
     z-index: 999;
-    background-color:#000;
-    background:rgba(0, 0, 0, 0.5)
+    background-color:#fff;
+    background:rgba(255,255,255, 0.7)
 }
-.del_info,.del_ok{
+/* .pop_box::before{
+  content:'';
+
+} */
+.del_info{
+  text-align: center;
+  padding:20px 0;
+
+}
+.del_cancel,.del_ok{
     border:1px solid #000;
     border-radius: 10px;
-
+    float:left;
+    width:50%;
+    box-sizing: border-box;
+    text-align:center;
+    cursor: pointer;
 }
 .detail{
   margin:0;
@@ -190,7 +212,12 @@ export default {
 }
 .detail .s_list .item_box .s_item_content  .s_item_ti a{
   text-decoration: none;
-  color:#000;
+    color: #000;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 200px;
+    display: inline-block;
 }
 .detail .s_list .item_box .s_item_content .s_item_weight{
   color:#BCCCCA;

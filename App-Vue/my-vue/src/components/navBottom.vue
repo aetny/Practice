@@ -1,4 +1,5 @@
 <template>
+<div class="nav_footer">
   <div class="nav_wrapper" v-if="$store.state.flags">
     <ul>
       <li>
@@ -33,6 +34,8 @@
       </li>
     </ul>
   </div>
+</div>
+  
 </template>
 <script>
 import {} from '../store/index'
@@ -45,7 +48,12 @@ export default {
 }
 </script>
 <style >
-  
+  .nav_footer::before{
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-box-sizing: border-box;
+  }
   .nav_wrapper{
     position: fixed;
     bottom:0;

@@ -2,7 +2,7 @@
   <div class="detail">
     <div class="detail_header">
       <a class="icon_back" href="#" @click="$router.go(-1)"></a>
-      <div class="detail_header_title"><input type="search" placeholder="点击搜索" @click="$router.push({path:'/search'})" v-model="input_data" class="search"></div>
+      <div class="detail_header_title"><input type="search" placeholder="点击搜索" @click="$router.push({path:'/find'})" v-model="input_data" class="search"></div>
       <a class="icon_menu" href="#" @click="$router.push({path:'/home'})"></a>
     </div>
   </div>

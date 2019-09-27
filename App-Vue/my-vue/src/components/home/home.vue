@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app_wrapper">
     <!-- 搜索 -->
     <Search />
     <!-- 轮播组件 -->

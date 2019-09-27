@@ -187,6 +187,7 @@ export default {
   background-color:#e2dede;
   padding:10px;
   font-size:14px;
+  padding-bottom: 60px;
 }
 .detail .detail_footer{
   width:100%;
