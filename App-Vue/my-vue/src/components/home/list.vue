@@ -200,6 +200,9 @@ export default {
   height:30px;
   line-height: 30px;
   margin-left:5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .list .list_wrapper .list_content{

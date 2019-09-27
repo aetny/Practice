@@ -51,7 +51,9 @@ export default {
   float:left;
   list-style:none;
   width:20%;
-
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .nav .nav_ul .nav_li .nav_box{
   text-align:center;
