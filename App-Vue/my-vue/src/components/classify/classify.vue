@@ -55,7 +55,6 @@ export default {
   width:90px;
 }
 .c_box .c_content{
-  width:100%;
-  height: 100%;
+  
 }
 </style>
