@@ -6,10 +6,10 @@ const db = mysql.createPool({
     connectTimeout  : 60 * 60 * 1000,
     acquireTimeout  : 60 * 60 * 1000,
     timeout         : 60 * 60 * 1000,
-    host: 'cdb-fekld8un.gz.tencentcdb.com', // db host
-    user: 'lxh',     // db user
-    password: 'Ssjiajs29u!#sjo102l33ewwqwq',  //db pwd
-    database: 'jd'   // db name
+    host: '', // db host
+    user: '',     // db user
+    password: '',  //db pwd
+    database: ''   // db name
 });
 module.exports = () => {
     const route = express.Router(); //创建路由路径的链式路由句柄。
